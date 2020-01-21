@@ -13,7 +13,7 @@ function ConversionPart3() {
   }
   var mantissa = (wholeBinary + fracBinary + "00000000000000000000000").substring(1, 24);
   var exponentDecimal = wholeBinary.length-1 + 127;
-  var exponentBinary = exponentDecimal.toString(2);
+  var exponentBinary = floatToConvert == 0 ? "00000000" : exponentDecimal.toString(2);
   var output = sign + exponentBinary + mantissa;
   // Show the output on the screen
   FormatAndShowOutput([floatToConvert, space(output)], 3);

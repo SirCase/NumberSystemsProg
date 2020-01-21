@@ -21,7 +21,7 @@ function FormatAndShowOutput(values, part) {
 }
 function space(number){
   var output = "";
-  for(var i = 0; i < number.length; i+=8){
+  for (var i = 0; i < number.length; i+=8){
      output += number.substring(i, i+8) + " ";
   }
   return output.substring(0, output.length-1);
