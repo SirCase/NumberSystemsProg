@@ -12,6 +12,9 @@ function ConversionPart2() {
       baseTwoValue.unshift(baseTenValue % 2);
       baseTenValue = Math.floor(baseTenValue / 2);
     }
+    while (baseTwoValue.length<23){
+      baseTwoValue.unshift(0);
+    }
     var value = "";
     var twos = "";
       for (var i = 0; i < baseTwoValue.length; i++){
