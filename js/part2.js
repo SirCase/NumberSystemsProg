@@ -40,7 +40,7 @@ function flipVals(array){
     a--;
   }
   array[a] = 1;
-  for (var i = a + a; i < array.length; i++){
+  for (var i = a + 1; i < array.length; i++){
     array[i] = 0;
   }
   return array;
