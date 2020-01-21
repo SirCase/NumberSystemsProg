@@ -12,7 +12,7 @@ function ConversionPart2() {
       baseTwoValue.unshift(baseTenValue % 2);
       baseTenValue = Math.floor(baseTenValue / 2);
     }
-    while (baseTwoValue.length<23){
+    while (baseTwoValue.length<31){
       baseTwoValue.unshift(0);
     }
     var value = "";
