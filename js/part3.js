@@ -2,8 +2,13 @@
 function ConversionPart3() {
   var floatToConvert = parseFloat(document.getElementById("3_Float").value);
   var sign = (floatToConvert >= 0 ? "0":"1");
-  var wholeDecimal = Math.floor(Math.abs(floatToConvert))
-  var wholeBinary = wholeDecimal.toString(2);
+  var wholeDecimal = Math.floor(Math.abs(floatToConvert));
+  var baseTenValue = wholeDecimal;
+  var wholeBinary = "";
+  while (baseTenValue != 0){
+    wholeBinary= (baseTenValue % 2) + wholeBinary;
+    baseTenValue = Math.floor(baseTenValue / 2);
+  }
   var fracDecimal = Math.abs(floatToConvert) - wholeDecimal;
   var fracBinary = "";
   while (fracDecimal != 0 && fracBinary.length + wholeBinary.length < 24){
@@ -13,7 +18,13 @@ function ConversionPart3() {
   }
   var mantissa = (wholeBinary + fracBinary + "00000000000000000000000").substring(1, 24);
   var exponentDecimal = wholeBinary.length-1 + 127;
-  var exponentBinary = floatToConvert == 0 ? "00000000" : exponentDecimal.toString(2);
+  baseTenValue = exponentDecimal;
+  var exponentBinary = "";
+  while (baseTenValue != 0){
+    exponentBinary= (baseTenValue % 2) + exponentBinary;
+    baseTenValue = Math.floor(baseTenValue / 2);
+  }
+  exponentBinary = floatToConvert == 0 ? "00000000": ("00000000" + exponentBinary).substring(("00000000" + exponentBinary).length-8);
   var output = sign + exponentBinary + mantissa;
   // Show the output on the screen
   FormatAndShowOutput([floatToConvert, space(output)], 3);
