@@ -12,10 +12,17 @@ function FormatAndShowOutput(values, part) {
        break;
      case 3:
         document.getElementById('ConversionOutput').textContent = values[0] +
-          " is represented in 32 bits by the following " + values[1];
+          " is represented in IEEE 754 by the following " + values[1];
         break;
      default:
         alert("WTF HAVE YOU DONE!!!");
         break;
    }
+}
+function space(number){
+  var output = "";
+  for(var i = 0; i < number.length; i+=8){
+     output += number.substring(i, i+8) + " ";
+  }
+  return output.substring(0, output.length-1);
 }

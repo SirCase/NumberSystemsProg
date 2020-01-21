@@ -1,14 +1,22 @@
 
 function ConversionPart3() {
   var floatToConvert = parseFloat(document.getElementById("3_Float").value);
-
-
-
-  var output32BitScientificNotation = "10100011001100001000010100101010";
-
-
+  var sign = (floatToConvert >= 0 ? "0":"1");
+  var wholeDecimal = Math.floor(Math.abs(floatToConvert))
+  var wholeBinary = wholeDecimal.toString(2);
+  var fracDecimal = Math.abs(floatToConvert) - wholeDecimal;
+  var fracBinary = "";
+  while (fracDecimal != 0 && fracBinary.length + wholeBinary.length < 24){
+    fracDecimal *= 2;
+    fracBinary += (fracDecimal >=1 ? "1":"0");
+    fracDecimal = fracDecimal - Math.floor(fracDecimal);
+  }
+  var mantissa = (wholeBinary + fracBinary + "00000000000000000000000").substring(1, 24);
+  var exponentDecimal = wholeBinary.length-1 + 127;
+  var exponentBinary = exponentDecimal.toString(2);
+  var output = sign + exponentBinary + mantissa;
   // Show the output on the screen
-  FormatAndShowOutput([floatToConvert, output32BitScientificNotation], 3);
+  FormatAndShowOutput([floatToConvert, space(output)], 3);
 }
 
 

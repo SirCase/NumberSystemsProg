@@ -2,11 +2,8 @@ function ConversionPart2() {
     //
     var SignedDecimalInt = parseInt(document.getElementById("2_SignedInt").value);
 
+    var value = "000000000000000000000000" + (SignedDecimalInt >>> 0).toString(2);
+    var twos = "000000000000000000000000" + (-SignedDecimalInt >>> 0).toString(2);
 
-
-    var outputValue = "010110101000110110011101";
-    var outputValueTwosComplement = "101001010111001001100011";
-
-    // Show the output on the screen
-    FormatAndShowOutput([outputValue, outputValueTwosComplement, SignedDecimalInt], 2);
+    FormatAndShowOutput([space(value.substring(value.length-24)), space(twos.substring(twos.length-24)), SignedDecimalInt], 2);
 }

@@ -4,11 +4,7 @@ function ConversionPart1() {
     var UnsignedIntBaseFrom = parseInt(document.getElementById("1_UnsignedIntBaseToConvertFrom").value);
     var UnsignedIntBaseTo = parseInt(document.getElementById("1_UnsignedIntBaseToConvertTo").value);
 
+    var outputValue = parseInt(UnsignedInt, UnsignedIntBaseFrom).toString(UnsignedIntBaseTo);
 
-
-  var outputValue = "11111111";
-
-  // Show the output on the screen
   FormatAndShowOutput([UnsignedInt, UnsignedIntBaseFrom, UnsignedIntBaseTo, outputValue], 1);
-
 }
